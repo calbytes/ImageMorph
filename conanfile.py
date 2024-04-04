@@ -1,5 +1,5 @@
 from conan import ConanFile
-from conan.tools.cmake import cmake_layout
+#from conan.tools.cmake import cmake_layout
 
 class ImageMorphRecipe(ConanFile):
     name = "ImageMorph"
@@ -12,6 +12,3 @@ class ImageMorphRecipe(ConanFile):
 
     def requirements(self):
         self.requires("gtest/1.14.0")
-
-    def layout(self):
-        cmake_layout(self)
