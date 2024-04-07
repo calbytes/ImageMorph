@@ -9,6 +9,10 @@ class ImageMorphRecipe(ConanFile):
     description = "Transforms Image and Video files"
     settings = "os", "compiler", "build_type", "arch"
     generators = "CMakeToolchain", "CMakeDeps"
-
+    source_folder = "."
+    build_folder = "build"
+    install_folder = "build"
+    package_folder = "package"
+    
     def requirements(self):
         self.requires("gtest/1.14.0")
