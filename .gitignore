@@ -2,5 +2,10 @@
 .vscode/
 
 build/
+vcpkg_installed/
 
+CMakePresets.json
 CMakeUserPresets.json
+vcpkg-configuration.json
+
+.env

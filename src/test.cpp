@@ -1,3 +1,11 @@
+#include <fmt/core.h>
+
+int main()
+{
+    fmt::print("Hello World!\n");
+    return 0;
+}
+/*
 #include <iostream>
 #include <gtest/gtest.h>
 
@@ -9,7 +17,7 @@ int main(int argc, char **argv) {
     ::testing::InitGoogleTest(&argc, argv);
 
     // Print Google Test version
-    std::cout << "Google Test version: " << ::testing::internal::GTEST_INFO << std::endl;
+    std::cout << "Google Testy version: " << ::testing::internal::GTEST_INFO << std::endl;
 
 
     for(int i=0; i<argc; i++){
@@ -18,3 +26,4 @@ int main(int argc, char **argv) {
 
     return 0;
 }
+*/

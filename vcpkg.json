@@ -1,5 +1,6 @@
 {
+  "name" : "image-morph",
   "dependencies": [
-    "gtest"
+    "fmt"
   ]
 }

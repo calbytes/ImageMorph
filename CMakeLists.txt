@@ -1,13 +1,12 @@
-cmake_minimum_required(VERSION 3.10.0)
+cmake_minimum_required(VERSION 3.16)
 
-project(ImageMorph VERSION 1.0.0)
+project(ImageMorph LANGUAGES CXX)
+set(CMAKE_CXX_STANDARD 17)
+set(CMAKE_CXX_STANDARD_REQUIRED ON)
+set(CMAKE_CXX_EXTENSIONS OFF)
 
-find_package(GTest REQUIRED)
+find_package(fmt REQUIRED)
 
 add_executable(${PROJECT_NAME} src/test.cpp)
 
-target_sources(${PROJECT_NAME} PRIVATE
-    src/test.cpp)
-
-target_link_libraries(${PROJECT_NAME} PRIVATE 
-    gtest::gtest)
+target_link_libraries(${PROJECT_NAME} PRIVATE fmt::fmt)
