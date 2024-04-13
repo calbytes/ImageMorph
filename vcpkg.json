@@ -1,6 +1,6 @@
 {
   "name" : "image-morph",
   "dependencies": [
-    "fmt"
+    "openssl"
   ]
 }

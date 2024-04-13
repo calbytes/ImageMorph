@@ -1,8 +1,12 @@
-#include <fmt/core.h>
+#include <iostream>
 
-int main()
-{
-    fmt::print("Hello World!\n");
+int main(int argc, char **argv) {
+    std::cout << "Usage: morph img.bmp imgout.bmp" << std::endl;
+    
+    for(int i=0; i<argc; i++){
+        std::cout << argv[i] << std::endl;
+    }
+
     return 0;
 }
 /*
