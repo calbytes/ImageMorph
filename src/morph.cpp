@@ -4,7 +4,7 @@
 
 void printUsage(){
     std::cout << "Error: invalid arguments" << std::endl;
-    std::cout << "Usage: morph <img.bmp> outFileName" << std::endl;
+    std::cout << "Usage: morph.exe <morphOption> <imageFile>.bmp <outFile>" << std::endl;
 }
 
 int main(int argc, char **argv) {
@@ -15,22 +15,18 @@ int main(int argc, char **argv) {
     }
     
     std::string morphOption(argv[1]);
-    std::string imgFile(argv[2]);
-    std::string imgOutFile(argv[3]);
+    std::string imgFileName(argv[2]);
+    std::string outFileName(argv[3]);
     
-    std::cout << morphOption + ", " + imgFile + " " + imgOutFile << std::endl;
+    std::cout << morphOption + ", " + imgFileName + " " + outFileName << std::endl;
 
     try {
-        imagereader imgReader;
-        imagewriter imgWriter;
-
-        imgReader.open(imgFile);
-        imgWriter.open(imgOutFile);
-        imgWriter.write();
+        imagereader imgReader(imgFileName);
+        imagewriter imgWriter(outFileName);
         
     } catch (std::exception e) {
         std::cout << e.what() << std::endl;
-        std::cout << "Exiting ImageMorph" << std::endl;
+        std::cout << "an error occurered. exiting ImageMorph." << std::endl;
         return 1;
     }
 

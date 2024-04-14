@@ -17,3 +17,4 @@ set(SRC_FILES
 add_executable(${EXE} ${SRC_FILES})
 
 target_include_directories(${EXE} PRIVATE ${CMAKE_SOURCE_DIR}/include)
+target_include_directories(${EXE} PRIVATE ${CMAKE_SOURCE_DIR}/img-src)

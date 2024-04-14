@@ -1,9 +1,9 @@
 #include "imagewriter.hpp"
 
-void imagewriter::open(const std::string &outFile) {
+imagewriter::imagewriter(const std::string &outFile) {
     _file.open(outFile, std::ios::binary);
 }
 
-void imagewriter::write(){
+void imagewriter::write(const std::vector<uint8_t> &bytes){
     _file.flush();
 }

@@ -5,14 +5,14 @@
 
 class imagereader {
 private:
-    std::string _filename;
+    std::string _fileName;
     std::vector<uint8_t> _header;
     std::vector<uint8_t> _data;
 
 public:
-    imagereader() {};  
+    imagereader(const std::string &imgFileName);  
     virtual ~imagereader() = default;
-    virtual void open(const std::string &imgFile);
+    virtual void readFile();
     virtual const std::vector<uint8_t> &getHeader();
     virtual const std::vector<uint8_t> &getData();    
 };

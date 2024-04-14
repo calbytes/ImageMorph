@@ -2,6 +2,7 @@
 
 #include <fstream>
 #include <vector>
+#include <string>
 #include <cstdint>
 
 class imagewriter {
@@ -9,8 +10,7 @@ private:
     std::ofstream _file;
 
 public:
-    imagewriter() {};
+    imagewriter(const std::string &outFileName);
     virtual ~imagewriter() = default;
-    virtual void open(const std::string &outFile);
-    virtual void write();
+    virtual void write(const std::vector<uint8_t> &bytes);
 };
