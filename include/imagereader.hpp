@@ -5,14 +5,15 @@
 
 class imagereader {
 private:
+    constexpr static size_t BMP_HEADER_SIZE{0x4};
     std::string _fileName;
     std::vector<uint8_t> _header;
     std::vector<uint8_t> _data;
+    virtual void readFile();
 
 public:
     imagereader(const std::string &imgFileName);  
     virtual ~imagereader() = default;
-    virtual void readFile();
     virtual const std::vector<uint8_t> &getHeader();
     virtual const std::vector<uint8_t> &getData();    
 };

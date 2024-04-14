@@ -1,6 +1,8 @@
 #include <iostream>
 #include "imagereader.hpp"
 #include "imagewriter.hpp"
+#include "morpher.hpp"
+#include "morphwrapper.hpp"
 
 void printUsage(){
     std::cout << "Error: invalid arguments" << std::endl;
@@ -18,12 +20,16 @@ int main(int argc, char **argv) {
     std::string imgFileName(argv[2]);
     std::string outFileName(argv[3]);
     
-    std::cout << morphOption + ", " + imgFileName + " " + outFileName << std::endl;
-
     try {
         imagereader imgReader(imgFileName);
         imagewriter imgWriter(outFileName);
-        
+
+        std::cout << "Address of _header: " << &imgReader.getHeader() << std::endl;
+        std::cout << "address of _data  : " << &imgReader.getData() << std::endl;
+
+        morphwrapper mw;
+        morpher morpher(mw);
+
     } catch (std::exception e) {
         std::cout << e.what() << std::endl;
         std::cout << "an error occurered. exiting ImageMorph." << std::endl;
