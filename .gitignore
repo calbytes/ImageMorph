@@ -3,6 +3,7 @@
 
 build/
 vcpkg_installed/
+img/
 
 CMakePresets.json
 CMakeUserPresets.json

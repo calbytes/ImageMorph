@@ -10,7 +10,7 @@ void printUsage(){
 }
 
 int main(int argc, char **argv) {
-
+    /*
     if(argc != 4){
         printUsage();
         return 1;
@@ -19,16 +19,25 @@ int main(int argc, char **argv) {
     std::string morphOption(argv[1]);
     std::string imgFileName(argv[2]);
     std::string outFileName(argv[3]);
+    */
+
+    std::string morphOption("rec1");
+    std::string imgFileName("img.bmp");
+    std::string outFileName("out.bmp");
     
     try {
         imagereader imgReader(imgFileName);
         imagewriter imgWriter(outFileName);
 
-        std::cout << "Address of _header: " << &imgReader.getHeader() << std::endl;
-        std::cout << "address of _data  : " << &imgReader.getData() << std::endl;
-
-        morphwrapper mw;
-        morpher morpher(mw);
+        if(morphOption == "rec1"){
+            morphwrapper mw;
+            morpher morpher(mw);
+            morpher.morphBytes(imgReader, imgWriter);
+        } else {
+            morphwrapper mw;
+            morpher morpher(mw);
+            morpher.morphBytes(imgReader, imgWriter);
+        }
 
     } catch (std::exception e) {
         std::cout << e.what() << std::endl;
@@ -36,5 +45,6 @@ int main(int argc, char **argv) {
         return 1;
     }
 
+    std::cout << "ImageMorph finished processing." << std::endl;
     return 0;
 }
