@@ -1,8 +1,9 @@
 #include <iostream>
-#include "imagereader.hpp"
-#include "imagewriter.hpp"
-#include "morpher.hpp"
-#include "morphwrapper.hpp"
+#include <chrono>
+#include "imagereader.h"
+#include "imagewriter.h"
+#include "morpher.h"
+#include "morphwrapper.h"
 
 void printUsage(){
     std::cout << "Error: invalid arguments" << std::endl;
@@ -10,6 +11,7 @@ void printUsage(){
 }
 
 int main(int argc, char **argv) {
+    auto start = std::chrono::high_resolution_clock::now();
     /*
     if(argc != 4){
         printUsage();
@@ -47,6 +49,8 @@ int main(int argc, char **argv) {
         return 1;
     }
 
-    std::cout << "ImageMorph finished processing." << std::endl;
+    auto stop = std::chrono::high_resolution_clock::now();
+    auto duration = std::chrono::duration_cast<std::chrono::microseconds>(stop - start);
+    std::cout << "ImageMorph finished; execution time: " << duration.count() << std::endl;
     return 0;
 }

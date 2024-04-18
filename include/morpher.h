@@ -1,9 +1,9 @@
 #pragma once
 #include <vector>
 #include <string>
-#include "imagereader.hpp"
-#include "imagewriter.hpp"
-#include "morphwrapper.hpp"
+#include "imagereader.h"
+#include "imagewriter.h"
+#include "morphwrapper.h"
 
 class morpher {
 private:

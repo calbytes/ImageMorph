@@ -1,12 +1,8 @@
 #include <iostream>
 #include <iterator>
-#include "imagereader.hpp"
+#include "imagereader.h"
 
 imagereader::imagereader(const std::string &imgFileName) : _fileName(imgFileName){
-    readFile();
-}
-
-void imagereader::readFile() {
     std::string pathToFile("../img/src/" + _fileName);
     std::ifstream file(pathToFile, std::ios::binary);
     if (!file.is_open()) {
@@ -18,10 +14,13 @@ void imagereader::readFile() {
     std::vector<uint8_t> buffer(begin, end);
 
     if (buffer.size() < BMP_HEADER_SIZE) {
-        throw std::runtime_error("file is not large enough to have a header");
+        throw std::runtime_error("File size Error.");
     }
 
     auto middle = buffer.begin() + BMP_HEADER_SIZE;
+    std::cout << "Address of buffer begin: " << static_cast<void*>(&buffer[0]) << std::endl;
+    std::cout << "Address of buffer end: " << static_cast<void*>(&buffer[buffer.size() - 1]) << std::endl;
+    std::cout << "Address of middle: " << static_cast<void*>(&(*middle)) << std::endl;
     _header.insert(_header.begin(), buffer.begin(), middle);
     _data.insert(_data.begin(), middle, buffer.end());
 }
