@@ -3,7 +3,7 @@
 #include "imagereader.h"
 
 imagereader::imagereader(const std::string &imgFileName) : _fileName(imgFileName){
-    std::string pathToFile("../img/src/" + _fileName);
+    std::string pathToFile("../img/" + _fileName);
     std::ifstream file(pathToFile, std::ios::binary);
     if (!file.is_open()) {
         throw std::runtime_error("ERROR: unable to open file: " + _fileName);
