@@ -18,11 +18,13 @@ imagereader::imagereader(const std::string &imgFileName) : _fileName(imgFileName
     }
 
     auto middle = buffer.begin() + BMP_HEADER_SIZE;
+    _header.insert(_header.begin(), buffer.begin(), middle);
+    _data.insert(_data.begin(), middle, buffer.end());
+    /*
     std::cout << "Address of buffer begin: " << static_cast<void*>(&buffer[0]) << std::endl;
     std::cout << "Address of buffer end: " << static_cast<void*>(&buffer[buffer.size() - 1]) << std::endl;
     std::cout << "Address of middle: " << static_cast<void*>(&(*middle)) << std::endl;
-    _header.insert(_header.begin(), buffer.begin(), middle);
-    _data.insert(_data.begin(), middle, buffer.end());
+    */
 }
 
 const std::vector<uint8_t> &imagereader::getHeader() {
