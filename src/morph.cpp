@@ -41,8 +41,6 @@ int main(int argc, char **argv) {
             morpher.morphBytes(imgReader, imgWriter);
         }
 
-        
-
     } catch (std::exception e) {
         std::cout << e.what() << std::endl;
         std::cout << "an error occurered. exiting ImageMorph." << std::endl;
